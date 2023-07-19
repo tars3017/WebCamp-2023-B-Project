@@ -88,7 +88,7 @@ button[type="submit"]:hover {
         height: 50%;
         overflow: auto;
         opacity: 0.7;
-        line-height: 50%;
+        line-height: 50%%;
     }
 }
 
@@ -130,7 +130,7 @@ button:hover {
 .commentTime {
     margin-left: auto;
     margin-right: 5px;
-    padding-right: 40px;
+    padding-right: 5px;
     width: 90px;
     /* border: 2px #121212 solid; */
     text-align: center;
