@@ -80,15 +80,15 @@ button[type="submit"]:hover {
 @keyframes expand{
     0% {
         height: 50px;
-        overflow: hide;
+        overflow: hidden;
         opacity: 0;
         line-height: 0%;
     }
-    100% {
-        height: auto;
+    50% {
+        height: 50%;
         overflow: auto;
         opacity: 0.7;
-        line-height: 100%;
+        line-height: 50%;
     }
 }
 
@@ -109,6 +109,7 @@ button[type="submit"]:hover {
 .commentBar {
     animation-name: expand;
     animation-duration: 0.4s;
+    font-size: 22px;
     /* transition: max-height 0.4s ease-in; */
 }
 
@@ -128,8 +129,8 @@ button:hover {
 
 .commentTime {
     margin-left: auto;
-    margin-right: 5;
-    padding-right: 5;
+    margin-right: 5px;
+    padding-right: 40px;
     width: 90px;
     /* border: 2px #121212 solid; */
     text-align: center;
@@ -149,8 +150,8 @@ button:hover {
 }
 
 #commentListTitle {
-    width: 120px;
+    width: 140px;
     color: rgb(27, 51, 54);
-    font-size: 20px;
+    font-size: 25px;
 }
 

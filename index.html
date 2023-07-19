@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>replit</title>
+    <title>選課寶典</title>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" />
 
     <script>
-        function handleClick(){
-            alert('點我幹嗎?趕緊新增評論><!!')
-        }
+        // function handleClick(){
+        //   alert('點我幹嗎?趕緊新增評論><!!')
+        // }
     </script>
     <style>
         h1{
@@ -32,9 +32,33 @@
 
 <body>
 <h1>選課寶典 <img src="https://cdn-icons-png.flaticon.com/128/3145/3145765.png" with="50px" height="60px">
-    <audio controls loop>
-        <source src="https://upload.wikimedia.org/wikipedia/en/d/da/Dream_Theater_-_Pull_Me_Under.ogg"  type="audio/ogg">
-    </audio>
+
+
+    <style>
+        .play-button {
+            cursor: pointer;
+        }
+    </style>
+
+
+    <iframe width="50" height="30" src="https://www.youtube.com/embed/g3X8w3D_4sc?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <script>
+        var playButton = document.getElementById('play-button');
+
+        playButton.addEventListener('click', function() {
+            var embedElement = document.createElement('embed');
+            embedElement.src = "https://www.youtube.com/embed/g3X8w3D_4sc?rel=0";
+            embedElement.autostart = true;
+            embedElement.hidden = true;
+            embedElement.loop = 1;
+            embedElement.volume = 100;
+            embedElement.width = "20";
+            embedElement.height = "20";
+            document.body.appendChild(embedElement);
+        });
+    </script>
+
 </h1>
 
 <form action="/search" method="GET">
@@ -52,7 +76,7 @@
 <h2>新增評論
     <button id="pictureButton" onclick="handleClick()"></button>
 </h2>
-<div class="form-group">
+<div class="form-group" id="otterFormGroup">
     <!-- <label for="username">你的名字:</label>
     <input type="text" id="username" required> -->
     <div class="form-group">
@@ -71,16 +95,16 @@
         <button type="submit" style="border: none;padding: 3px 7px; border-radius: 5px; font-size: 15px; background-image: linear-gradient(to right, #ddd, #f0f0f0); color: mediumpurple; cursor: pointer; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);" id="submitButton">提交</button>
     </div>
 
+</div>
+<div id="commentListTitle">
+    評論列表
+    <img src="https://cdn-icons-png.flaticon.com/128/2666/2666505.png" with="25px" height="25px">
+</div>
+<div id="commentList">
+</div>
 
-    <div id="commentListTitle">
-        評論列表
-        <img src="https://cdn-icons-png.flaticon.com/128/2666/2666505.png" with="20px" height="20px">
-    </div>
-    <div id="commentList">
-    </div>
-
-    <div id="commentDetail"></div>
-    <script src="./script.js"></script>
+<div id="commentDetail"></div>
+<script src="./script.js"></script>
 </body>
 
 </html>

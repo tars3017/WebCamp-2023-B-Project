@@ -21,6 +21,7 @@ function showCommentList() {
     $('#commentList').empty();
     $('#commentDetail').hide();
     $('#commentList').show();
+    $('#otterFormGroup').hide();
 
     let printed = [];
     comments.forEach(oneCom => {
@@ -75,6 +76,11 @@ function showCommentDetail(nowProf, nowCourseName) {
 }
 $(window).ready(() => {
     console.log('Document Loaded');
+
+    const windowWidth = $(window).width();
+    $('#searchInput').css('width', `${windowWidth - 250}px`)
+
+    $('#otterFormGroup').hide();
     showCommentList();
 });
 
@@ -83,17 +89,28 @@ $('form').submit((event) => {
     const searchText = $('#searchInput').val().trim();
 
     if (searchText === '') {
+        alert('請輸入課程名稱!')
         $('.commentBar').show();
         return;
     }
 
     $('.commentBar').hide();
+
+    let courseFound = false;
+
     comments.forEach(oneCom => {
         if (oneCom.courseName.includes(searchText)) {
             const selector = `div.commentBar:contains("${oneCom.courseName}")`;
             $(selector).show();
+            courseFound = true;
         }
     });
+
+    if (!courseFound) {
+        alert('無該課程!');
+        $('.commentBar').show();
+    }
+
 });
 
 $('#submitButton').click(function() {
@@ -113,3 +130,8 @@ $('#submitButton').click(function() {
     comments.push(nowComment);
     showCommentList();
 });
+
+
+function handleClick() {
+    $('#otterFormGroup').slideToggle();
+}
